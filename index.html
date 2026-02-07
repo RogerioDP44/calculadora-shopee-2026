@@ -50,8 +50,15 @@
         .seo-footer h3 { color: var(--shopee-orange); border-bottom: 2px solid var(--shopee-orange); display: inline-block; margin: 20px 0 10px 0; font-size: 1.2em; }
         .seo-footer p { margin-bottom: 15px; text-align: justify; }
         .seo-footer b { color: var(--shopee-orange); }
-        .seo-footer ul { padding-left: 20px; }
+        .seo-footer ul { padding-left: 20px; margin-bottom: 15px; }
         .seo-footer li { margin-bottom: 10px; }
+
+        /* Estilos para a tabela de taxas */
+        .tax-table { width: 100%; border-collapse: collapse; margin-top: 20px; margin-bottom: 25px; }
+        .tax-table th, .tax-table td { border: 1px solid var(--border); padding: 10px; text-align: center; font-size: 0.9em; }
+        .tax-table th { background-color: var(--shopee-orange); color: white; font-weight: bold; }
+        .tax-table tr:nth-child(even) { background-color: rgba(0,0,0,0.02); }
+        [data-theme="dark"] .tax-table tr:nth-child(even) { background-color: rgba(255,255,255,0.05); }
     </style>
 </head>
 <body>
@@ -119,14 +126,58 @@
         <h3>Entenda as Diferenças de Taxas</h3>
         <ul>
             <li><b>Taxas Anteriores:</b> Este modelo reflete a estrutura clássica da Shopee, com comissão de 20% (já incluindo frete grátis) e a taxa fixa de R$ 4,00 por item vendido. Serve como base histórica para comparação de rentabilidade.</li>
-            <li><b>Novas Taxas (CNPJ/MEI):</b> O modelo atual para 2026 foca em vendedores profissionais. A comissão base caiu para <b>14%</b>, porém introduziu a **Taxa Fixa Variável**. Esta taxa aumenta conforme o valor do produto (variando entre R$ 16 e R$ 26), exigindo atenção redobrada em produtos de baixo ticket médio.</li>
+            <li><b>Novas Taxas (CNPJ/MEI):</b> O modelo atual para 2026 foca em vendedores profissionais. A comissão base caiu para <b>14%</b>, porém introduziu a **Taxa Fixa Variável**. Esta taxa aumenta conforme o valor do produto, exigindo atenção redobrada em produtos de baixo ticket médio.</li>
         </ul>
+
+        <h4>Tabela de Taxa Fixa Variável (CNPJ/MEI 2026)</h4>
+        <table class="tax-table">
+            <thead>
+                <tr>
+                    <th>Valor do Produto (R$)</th>
+                    <th>Comissão (%)</th>
+                    <th>Taxa Fixa (R$)</th>
+                    <th>Subsídio Pix (%)</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Até R$ 79,99</td>
+                    <td>20%</td>
+                    <td>R$ 4,00</td>
+                    <td>0%</td>
+                </tr>
+                <tr>
+                    <td>R$ 80,00 - R$ 99,99</td>
+                    <td>14%</td>
+                    <td>R$ 16,00</td>
+                    <td>5%</td>
+                </tr>
+                <tr>
+                    <td>R$ 100,00 - R$ 199,99</td>
+                    <td>14%</td>
+                    <td>R$ 20,00</td>
+                    <td>5%</td>
+                </tr>
+                <tr>
+                    <td>R$ 200,00 - R$ 499,99</td>
+                    <td>14%</td>
+                    <td>R$ 26,00</td>
+                    <td>5%</td>
+                </tr>
+                 <tr>
+                    <td>Acima de R$ 500,00</td>
+                    <td>14%</td>
+                    <td>R$ 26,00</td>
+                    <td>8%</td>
+                </tr>
+            </tbody>
+        </table>
 
         <h3>Preço Seguro vs Preço Agressivo</h3>
         <p>Nesta ferramenta, entregamos dois valores fundamentais para sua estratégia comercial:</p>
         <ul>
             <li><b>Preço Seguro (🛡️):</b> Este é o valor que você deve utilizar como padrão. Ele garante que, mesmo que o cliente pague via Cartão de Crédito ou Boleto, sua margem de lucro líquida será preservada.</li>
-            <li><b>Preço Agressivo (🔥):</b> Este valor aproveita o **Subsídio de Pagamento via Pix** implementado em 2026. É um preço mais baixo para atrair o cliente, mas o seu lucro total só será atingido se a venda for finalizada via Pix. Use este valor em campanhas de "Oferta Relâmpago".</li>
+            <li><b>Preço Agressivo (🔥):</b> Este valor aproveita o **Subsídio de Pagamento via Pix** implementado em 2026. É um preço mais baixo para atrair o cliente, mas o seu lucro total só será atingido se a venda for finalizada via Pix. Use este valor em campanhas de "Oferta Relâmpago" para impulsionar vendas com pagamento instantâneo.</li>
         </ul>
 
         <hr style="border:0; border-top: 1px solid var(--border); margin: 30px 0;">
@@ -247,20 +298,5 @@
 
     rodarCalculo();
 </script>
-    <div class="seo-footer">
-    <h3>Manual de Precificação Shopee 2026</h3>
-    <p>Vender em marketplaces exige uma gestão rigorosa de custos. Esta calculadora foi projetada para vendedores <b>CNPJ e MEI</b> que precisam de clareza sobre o lucro líquido após todas as deduções.</p>
-
-    <h3>Como ler os seus resultados?</h3>
-    <ul>
-        <li><b>Margem de Lucro:</b> Recomendamos manter entre 20% a 30% para cobrir custos fixos (embalagem, tempo e luz).</li>
-        <li><b>Preço Seguro:</b> Utilize este valor para vendas diárias. Ele garante o seu lucro mesmo que o cliente pague parcelado.</li>
-        <li><b>Preço Agressivo:</b> Utilize este valor apenas em promoções "Relâmpago" ou datas comemorativas, pois ele depende do subsídio de pagamento via Pix.</li>
-    </ul>
-
-    <h3>Taxas Aplicadas em 2026</h3>
-    <p>O cálculo atualiza automaticamente entre o modelo de <b>20% de comissão</b> (taxas antigas) e o novo modelo de <b>14% + Taxa Fixa Variável</b>. Lembre-se que a taxa fixa varia de acordo com o valor total do produto vendido.</p>
-</div>
 </body>
-
 </html>
