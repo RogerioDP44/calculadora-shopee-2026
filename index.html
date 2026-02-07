@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora Shopee 2026 - Taxas Atualizadas</title>
+    
+    <style>
+        :root { 
+            --shopee-orange: #ee4d2d; --bg-body: #f8f9fa; --bg-card: #ffffff; 
+            --text: #333; --border: #eee; --danger: #dc3545; --success: #28a745;
+        }
+        [data-theme="dark"] { 
+            --bg-body: #121212; --bg-card: #1e1e1e; --text: #e0e0e0; --border: #333; 
+        }
+        
+        body { font-family: 'Segoe UI', sans-serif; background: var(--bg-body); color: var(--text); display: flex; flex-direction: column; align-items: center; padding: 20px; transition: 0.3s; min-height: 100vh; margin: 0; }
+        
+        .ad-box { background: rgba(0,0,0,0.05); border: 1px dashed #ccc; margin: 15px 0; text-align: center; color: #888; font-size: 11px; border-radius: 10px; display: flex; align-items: center; justify-content: center; width: 100%; }
+        .ad-728 { max-width: 728px; height: 90px; }
+        .ad-middle { height: 100px; margin: 15px 0; }
+
+        .container { width: 100%; max-width: 480px; }
+        .card { background: var(--bg-card); padding: 25px; border-radius: 20px; box-shadow: 0 10px 25px rgba(0,0,0,0.2); position: relative; border: 1px solid var(--border); }
+        
+        .theme-btn { position: absolute; top: 15px; right: 15px; cursor: pointer; background: var(--border); border: none; width: 40px; height: 40px; border-radius: 50%; color: var(--text); display: flex; align-items: center; justify-content: center; font-size: 1.2rem; }
+
+        h2 { color: var(--shopee-orange); text-align: center; margin-bottom: 20px; font-size: 1.5rem; }
+        
+        .tabs { display: flex; background: var(--border); border-radius: 10px; margin-bottom: 20px; padding: 4px; gap: 4px; }
+        .tab-item { flex: 1; text-align: center; padding: 12px 5px; cursor: pointer; border-radius: 8px; font-weight: bold; font-size: 0.85em; transition: 0.2s; color: var(--text); line-height: 1.2; }
+        .tab-item.active { background: var(--shopee-orange); color: white; }
+
+        .field { margin-bottom: 15px; }
+        .field label { display: block; margin-bottom: 5px; font-size: 0.85em; font-weight: bold; }
+        .field input { width: 100%; padding: 12px; border: 2px solid var(--border); border-radius: 10px; background: var(--bg-card); color: var(--text); box-sizing: border-box; font-size: 1rem; }
+        
+        .slider-box { margin: 20px 0; padding: 15px; background: rgba(238, 77, 45, 0.07); border-radius: 12px; border: 1px solid var(--border); }
+        .slider-box input { width: 100%; cursor: pointer; accent-color: var(--shopee-orange); margin: 10px 0; }
+
+        #box-resultado { margin-top: 20px; padding: 20px; border-radius: 15px; border: 2px solid var(--shopee-orange); }
+        .price-tag { font-size: 1.8em; color: var(--shopee-orange); font-weight: bold; text-align: center; display: block; margin-top: 5px; }
+        
+        .btn-wa { background: #25d366; color: white; border: none; padding: 14px; border-radius: 10px; width: 100%; font-weight: bold; cursor: pointer; margin-top: 15px; display: flex; align-items: center; justify-content: center; gap: 8px; text-decoration: none; font-size: 1rem;}
+        
+        #msg-alerta { display: none; padding: 12px; border-radius: 10px; margin-bottom: 15px; font-size: 0.9em; text-align: center; font-weight: bold; }
+        
+        /* RODAPÉ SEO EXPLICATIVO MELHORADO */
+        .seo-footer { max-width: 800px; margin-top: 40px; padding: 20px; font-size: 0.95em; line-height: 1.7; color: var(--text); border-top: 1px solid var(--border); }
+        .seo-footer h3 { color: var(--shopee-orange); border-bottom: 2px solid var(--shopee-orange); display: inline-block; margin: 20px 0 10px 0; font-size: 1.2em; }
+        .seo-footer p { margin-bottom: 15px; text-align: justify; }
+        .seo-footer b { color: var(--shopee-orange); }
+        .seo-footer ul { padding-left: 20px; }
+        .seo-footer li { margin-bottom: 10px; }
+    </style>
+</head>
+<body>
+
+    <div class="ad-box ad-728">ESPAÇO PUBLICITÁRIO (BANNER TOPO)</div>
+
+    <div class="container">
+        <div class="card">
+            <button class="theme-btn" onclick="toggleMode()">🌓</button>
+            <h2>Shopee Calc 2026 🚀</h2>
+
+            <div class="tabs">
+                <div id="btn-antigo" class="tab-item active" onclick="trocarModelo('antigo')">Taxas<br>Anteriores</div>
+                <div id="btn-novo" class="tab-item" onclick="trocarModelo('novo')">Novas Taxas<br>(CNPJ)</div>
+            </div>
+            
+            <div class="field">
+                <label>Custo do Produto (R$)</label>
+                <input type="number" id="in-custo" value="50.00" step="0.01" oninput="rodarCalculo()">
+            </div>
+
+            <div class="field">
+                <label>Imposto Simples Nacional (%)</label>
+                <input type="number" id="in-imposto" value="4" step="0.1" oninput="rodarCalculo()">
+            </div>
+
+            <div class="slider-box">
+                <div style="display:flex; justify-content:space-between; align-items: center;">
+                    <span style="font-weight:bold; font-size:0.9em">Margem de Lucro Desejada</span>
+                    <span id="txt-margem" style="color:var(--shopee-orange); font-weight:bold; font-size: 1.1em;">20%</span>
+                </div>
+                <input type="range" id="range-margem" min="0" max="100" value="20" oninput="atualizarRange()">
+                <button onclick="fixarVinteCinco()" style="background:none; border:1px solid var(--shopee-orange); color:var(--shopee-orange); padding:8px; border-radius:8px; font-size:0.75em; cursor:pointer; font-weight:bold; width: 100%; margin-top: 10px;">🎯 Sugerir Margem Ideal (25%)</button>
+            </div>
+
+            <div id="box-resultado">
+                <div id="msg-alerta"></div>
+                
+                <div style="display:flex; justify-content:space-between; font-size:0.9em">
+                    <span>Lucro Líquido Real:</span>
+                    <span id="res-lucro" style="font-weight:bold;">R$ 0,00</span>
+                </div>
+                
+                <hr style="border:0; border-top: 1px solid var(--border); margin:15px 0">
+                
+                <div style="text-align:center; font-size:0.8em; font-weight:bold; color:var(--success)">🛡️ PREÇO SEGURO (Lucro Garantido)</div>
+                <span class="price-tag" id="res-seguro">R$ 0,00</span>
+
+                <div class="ad-box ad-middle">ANÚNCIO NATIVO (DENTRO DO CARD)</div>
+
+                <div id="area-pix" style="display: block; margin-top: 15px; padding-top: 15px; border-top: 1px dashed var(--border);">
+                    <div style="text-align:center; font-size:0.8em; font-weight:bold; color:var(--shopee-orange);">🔥 PREÇO AGRESSIVO (Foco em Pix)</div>
+                    <span class="price-tag" id="res-pix" style="font-size:1.3em; opacity:0.8">R$ 0,00</span>
+                </div>
+
+                <button class="btn-wa" onclick="enviarZap()">Enviar Orçamento via WhatsApp</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="seo-footer">
+        <h3>Como precificar na Shopee em 2026?</h3>
+        <p>Precificar corretamente no marketplace é a diferença entre o sucesso e o prejuízo. Com as constantes mudanças nas políticas de comissão, o vendedor precisa de ferramentas de **lucro real**. Nossa calculadora foi atualizada com as regras vigentes para 2026, ajudando você a absorver as taxas e manter sua competitividade.</p>
+        
+        <h3>Entenda as Diferenças de Taxas</h3>
+        <ul>
+            <li><b>Taxas Anteriores:</b> Este modelo reflete a estrutura clássica da Shopee, com comissão de 20% (já incluindo frete grátis) e a taxa fixa de R$ 4,00 por item vendido. Serve como base histórica para comparação de rentabilidade.</li>
+            <li><b>Novas Taxas (CNPJ/MEI):</b> O modelo atual para 2026 foca em vendedores profissionais. A comissão base caiu para <b>14%</b>, porém introduziu a **Taxa Fixa Variável**. Esta taxa aumenta conforme o valor do produto (variando entre R$ 16 e R$ 26), exigindo atenção redobrada em produtos de baixo ticket médio.</li>
+        </ul>
+
+        <h3>Preço Seguro vs Preço Agressivo</h3>
+        <p>Nesta ferramenta, entregamos dois valores fundamentais para sua estratégia comercial:</p>
+        <ul>
+            <li><b>Preço Seguro (🛡️):</b> Este é o valor que você deve utilizar como padrão. Ele garante que, mesmo que o cliente pague via Cartão de Crédito ou Boleto, sua margem de lucro líquida será preservada.</li>
+            <li><b>Preço Agressivo (🔥):</b> Este valor aproveita o **Subsídio de Pagamento via Pix** implementado em 2026. É um preço mais baixo para atrair o cliente, mas o seu lucro total só será atingido se a venda for finalizada via Pix. Use este valor em campanhas de "Oferta Relâmpago".</li>
+        </ul>
+
+        <hr style="border:0; border-top: 1px solid var(--border); margin: 30px 0;">
+        
+        <h4>Aviso Legal e Privacidade</h4>
+        <p style="font-size: 0.85em; opacity: 0.8;">Esta calculadora é um simulador independente e não possui vínculo oficial com a Shopee Brasil. Os cálculos são baseados em estimativas das taxas públicas. Este site utiliza cookies do **Google AdSense** para veicular anúncios personalizados. Você pode gerenciar suas preferências de privacidade nas configurações do seu navegador.</p>
+        
+        <p style="text-align:center; font-size: 0.8em; margin-top: 30px; opacity: 0.6;">&copy; 2026 Shopee Calc Pro - A sua ferramenta de gestão de lucro.</p>
+    </div>
+
+    <div class="ad-box ad-728" style="margin-top: 20px; margin-bottom: 40px;">ESPAÇO PUBLICITÁRIO (BANNER RODAPÉ)</div>
+
+<script>
+    let modAtivo = 'antigo';
+
+    if (localStorage.getItem('tema') === 'escuro') document.documentElement.setAttribute('data-theme', 'dark');
+
+    function toggleMode() {
+        const doc = document.documentElement;
+        if (doc.getAttribute('data-theme') === 'dark') {
+            doc.removeAttribute('data-theme');
+            localStorage.setItem('tema', 'claro');
+        } else {
+            doc.setAttribute('data-theme', 'dark');
+            localStorage.setItem('tema', 'escuro');
+        }
+    }
+
+    function trocarModelo(m) {
+        modAtivo = m;
+        document.getElementById('btn-antigo').classList.toggle('active', m === 'antigo');
+        document.getElementById('btn-novo').classList.toggle('active', m === 'novo');
+        rodarCalculo();
+    }
+
+    function atualizarRange() {
+        document.getElementById('txt-margem').innerText = document.getElementById('range-margem').value + "%";
+        rodarCalculo();
+    }
+
+    function fixarVinteCinco() {
+        document.getElementById('range-margem').value = 25;
+        atualizarRange();
+    }
+
+    function rodarCalculo() {
+        const custo = parseFloat(document.getElementById('in-custo').value) || 0;
+        const imposto = (parseFloat(document.getElementById('in-imposto').value) || 0) / 100;
+        const margem = parseFloat(document.getElementById('range-margem').value) / 100;
+        
+        const alerta = document.getElementById('msg-alerta');
+        const cardRes = document.getElementById('box-resultado');
+
+        alerta.style.display = 'none';
+        cardRes.style.borderColor = 'var(--shopee-orange)';
+        
+        const comBase = (modAtivo === 'antigo' ? 0.20 : 0.14);
+        const somaTaxas = comBase + imposto + margem;
+
+        if (somaTaxas >= 0.99) {
+            document.getElementById('res-seguro').innerText = "Inviável";
+            document.getElementById('res-pix').innerText = "---";
+            document.getElementById('res-lucro').innerText = "---";
+            alerta.innerText = "❌ Taxas e Margem excedem 100%!";
+            alerta.style.display = 'block';
+            alerta.style.background = "#f8d7da"; alerta.style.color = "#721c24";
+            cardRes.style.borderColor = "var(--danger)";
+            return;
+        }
+
+        let pSeguro = 0; let pPix = 0;
+
+        if (modAtivo === 'antigo') {
+            pSeguro = (custo + 4) / (1 - 0.20 - imposto - margem);
+            if ((pSeguro * 0.20) > 100) pSeguro = (custo + 104) / (1 - imposto - margem);
+            pPix = pSeguro;
+        } else {
+            const faixas = [
+                {lim: 79.99, c: 0.20, f: 4, s: 0},
+                {lim: 99.99, c: 0.14, f: 16, s: 0.05},
+                {lim: 199.99, c: 0.14, f: 20, s: 0.05},
+                {lim: 499.99, c: 0.14, f: 26, s: 0.05},
+                {lim: Infinity, c: 0.14, f: 26, s: 0.08}
+            ];
+            
+            for(let f of faixas) {
+                let p = (custo + f.f) / (1 - f.c - imposto - margem);
+                if (p <= f.lim || f.lim === Infinity) { pSeguro = p; break; }
+            }
+            for(let f of faixas) {
+                let p = (custo + f.f) / (1 - f.c + f.s - imposto - margem);
+                if (p <= f.lim || f.lim === Infinity) { pPix = p; break; }
+            }
+        }
+
+        alerta.style.display = 'block';
+        if (margem >= 0.30) {
+            alerta.innerText = "✅ Margem Excelente!";
+            alerta.style.background = "#d4edda"; alerta.style.color = "#155724";
+            cardRes.style.borderColor = "var(--success)";
+        } else if (margem >= 0.15) {
+            alerta.innerText = "⚖️ Margem Saudável";
+            alerta.style.background = "#e7f3ff"; alerta.style.color = "#004085";
+        } else {
+            alerta.innerText = "⚠️ Margem Baixa!";
+            alerta.style.background = "#fff3cd"; alerta.style.color = "#856404";
+        }
+
+        document.getElementById('res-lucro').innerText = "R$ " + (pSeguro * margem).toFixed(2);
+        document.getElementById('res-seguro').innerText = "R$ " + pSeguro.toFixed(2);
+        document.getElementById('res-pix').innerText = "R$ " + pPix.toFixed(2);
+    }
+
+    function enviarZap() {
+        const val = document.getElementById('res-seguro').innerText;
+        window.open(`https://api.whatsapp.com/send?text=Sugestão de Preço Shopee: ${val}`, '_blank');
+    }
+
+    rodarCalculo();
+</script>
+</body>
+</html>
