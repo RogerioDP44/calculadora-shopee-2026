@@ -8,6 +8,15 @@
     <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🚀</text></svg>">
   
     <style>
+        /* Estilo da Seção de Contato */
+        .contact-section { margin-top: 30px; padding: 25px; background: var(--bg-card); border-radius: 20px; border: 1px solid var(--border); text-align: center; }
+        .contact-section h3 { color: var(--shopee-orange); margin-bottom: 15px; font-size: 1.3em; }
+        .contact-section p { font-size: 0.9em; margin-bottom: 20px; opacity: 0.8; }
+        .contact-links { display: flex; flex-direction: column; gap: 10px; }
+        .contact-btn { display: flex; align-items: center; justify-content: center; gap: 10px; padding: 12px; border-radius: 10px; text-decoration: none; font-weight: bold; font-size: 0.95em; transition: 0.3s; }
+        .btn-email { background: #f1f1f1; color: #333; border: 1px solid #ddd; }
+        .btn-email:hover { background: #e0e0e0; }
+        [data-theme="dark"] .btn-email { background: #333; color: #fff; border-color: #444; }
         :root { 
             --shopee-orange: #ee4d2d; --bg-body: #f8f9fa; --bg-card: #ffffff; 
             --text: #333; --border: #eee; --danger: #dc3545; --success: #28a745;
@@ -46,6 +55,19 @@
         .btn-wa { background: #25d366; color: white; border: none; padding: 14px; border-radius: 10px; width: 100%; font-weight: bold; cursor: pointer; margin-top: 15px; display: flex; align-items: center; justify-content: center; gap: 8px; text-decoration: none; font-size: 1rem;}
         
         #msg-alerta { display: none; padding: 12px; border-radius: 10px; margin-bottom: 15px; font-size: 0.9em; text-align: center; font-weight: bold; }
+
+        <div class="contact-section">
+        <h3>📩 Suporte e Sugestões</h3>
+        <p>Encontrou algum erro ou tem uma sugestão de melhoria para a nossa calculadora? Entre em contato conosco!</p>
+        <div class="contact-links">
+            <a href="mailto:seuemail@exemplo.com" class="contact-btn btn-email">
+                📧 Enviar E-mail de Suporte
+            </a>
+            <a href="https://api.whatsapp.com/send?phone=55XXXXXXXXXXX&text=Olá, tenho uma dúvida sobre a Calculadora Shopee" target="_blank" class="contact-btn btn-wa" style="margin-top: 0;">
+                💬 Falar via WhatsApp
+            </a>
+        </div>
+    </div>
         
         /* RODAPÉ SEO EXPLICATIVO MELHORADO */
         .seo-footer { max-width: 800px; margin-top: 40px; padding: 20px; font-size: 0.95em; line-height: 1.7; color: var(--text); border-top: 1px solid var(--border); }
@@ -302,5 +324,6 @@
 </script>
 </body>
 </html>
+
 
 
