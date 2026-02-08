@@ -302,83 +302,35 @@
         atualizarRange();
     }
 
+    // Função para carregar dados salvos ao abrir o site
+    window.onload = function() {
+        if(localStorage.getItem('shopee_imposto')) {
+            document.getElementById('in-imposto').value = localStorage.getItem('shopee_imposto');
+        }
+        if(localStorage.getItem('shopee_margem')) {
+            document.getElementById('range-margem').value = localStorage.getItem('shopee_margem');
+            atualizarRange();
+        }
+        rodarCalculo();
+    };
+
+    // Altere o início da sua função rodarCalculo para salvar os dados
     function rodarCalculo() {
         const custo = parseFloat(document.getElementById('in-custo').value) || 0;
         const imposto = (parseFloat(document.getElementById('in-imposto').value) || 0) / 100;
         const margem = parseFloat(document.getElementById('range-margem').value) / 100;
+
+        // SALVAR NO NAVEGADOR
+        localStorage.setItem('shopee_imposto', document.getElementById('in-imposto').value);
+        localStorage.setItem('shopee_margem', document.getElementById('range-margem').value);
         
-        const alerta = document.getElementById('msg-alerta');
-        const cardRes = document.getElementById('box-resultado');
+        // ... restante do código da função que já temos ...
 
-        alerta.style.display = 'none';
-        cardRes.style.borderColor = 'var(--shopee-orange)';
-        
-        const comBase = (modAtivo === 'antigo' ? 0.20 : 0.14);
-        const somaTaxas = comBase + imposto + margem;
-
-        if (somaTaxas >= 0.99) {
-            document.getElementById('res-seguro').innerText = "Inviável";
-            document.getElementById('res-pix').innerText = "---";
-            document.getElementById('res-lucro').innerText = "---";
-            alerta.innerText = "❌ Taxas e Margem excedem 100%!";
-            alerta.style.display = 'block';
-            alerta.style.background = "#f8d7da"; alerta.style.color = "#721c24";
-            cardRes.style.borderColor = "var(--danger)";
-            return;
-        }
-
-        let pSeguro = 0; let pPix = 0;
-
-        if (modAtivo === 'antigo') {
-            pSeguro = (custo + 4) / (1 - 0.20 - imposto - margem);
-            if ((pSeguro * 0.20) > 100) pSeguro = (custo + 104) / (1 - imposto - margem);
-            pPix = pSeguro;
-        } else {
-            const faixas = [
-                {lim: 79.99, c: 0.20, f: 4, s: 0},
-                {lim: 99.99, c: 0.14, f: 16, s: 0.05},
-                {lim: 199.99, c: 0.14, f: 20, s: 0.05},
-                {lim: 499.99, c: 0.14, f: 26, s: 0.05},
-                {lim: Infinity, c: 0.14, f: 26, s: 0.08}
-            ];
-            
-            for(let f of faixas) {
-                let p = (custo + f.f) / (1 - f.c - imposto - margem);
-                if (p <= f.lim || f.lim === Infinity) { pSeguro = p; break; }
-            }
-            for(let f of faixas) {
-                let p = (custo + f.f) / (1 - f.c + f.s - imposto - margem);
-                if (p <= f.lim || f.lim === Infinity) { pPix = p; break; }
-            }
-        }
-
-        alerta.style.display = 'block';
-        if (margem >= 0.30) {
-            alerta.innerText = "✅ Margem Excelente!";
-            alerta.style.background = "#d4edda"; alerta.style.color = "#155724";
-            cardRes.style.borderColor = "var(--success)";
-        } else if (margem >= 0.15) {
-            alerta.innerText = "⚖️ Margem Saudável";
-            alerta.style.background = "#e7f3ff"; alerta.style.color = "#004085";
-        } else {
-            alerta.innerText = "⚠️ Margem Baixa!";
-            alerta.style.background = "#fff3cd"; alerta.style.color = "#856404";
-        }
-
-        document.getElementById('res-lucro').innerText = "R$ " + (pSeguro * margem).toFixed(2);
-        document.getElementById('res-seguro').innerText = "R$ " + pSeguro.toFixed(2);
-        document.getElementById('res-pix').innerText = "R$ " + pPix.toFixed(2);
-    }
-
-    function enviarZap() {
-        const val = document.getElementById('res-seguro').innerText;
-        window.open(`https://api.whatsapp.com/send?text=Sugestão de Preço Shopee: ${val}`, '_blank');
-    }
-
-    rodarCalculo();
+   
 </script>
 </body>
 </html>
+
 
 
 
