@@ -17,36 +17,6 @@
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2017292251960769" crossorigin="anonymous"></script>
 
     <style>
-
-
-     /* Ajuste de Alerta para Modo Claro e Escuro */
-        #msg-alerta { 
-            display: none; 
-            padding: 12px; 
-            border-radius: 10px; 
-            margin-bottom: 15px; 
-            font-size: 0.9em; 
-            text-align: center; 
-            font-weight: bold;
-            transition: 0.3s;
-        }
-
-        /* Cores específicas para contraste no Modo Escuro */
-        [data-theme="dark"] #msg-alerta {
-            color: #121212; /* Texto escuro sobre o fundo colorido do alerta para melhor leitura */
-        }
-        
-        /* Ajuste das cores de fundo para não "sumirem" no escuro */
-        .alerta-sucesso { background: #d4edda !important; color: #155724 !important; }
-        .alerta-aviso { background: #fff3cd !important; color: #856404 !important; }
-        
-        /* Estilo da Política de Privacidade */
-        .modal-privacy { display: none; position: fixed; z-index: 1000; left: 0; top: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.8); overflow-y: auto; }
-        .modal-content { background: var(--bg-card); margin: 5% auto; padding: 30px; border-radius: 20px; width: 90%; max-width: 600px; line-height: 1.6; position: relative; }
-        .close-modal { position: absolute; top: 15px; right: 20px; font-size: 25px; cursor: pointer; color: var(--shopee-orange); }
-        .privacy-link { display: block; text-align: center; margin-top: 15px; font-size: 0.8em; color: var(--text); opacity: 0.6; text-decoration: underline; cursor: pointer; }
-
-        
         :root { 
             --shopee-orange: #ee4d2d; --bg-body: #f8f9fa; --bg-card: #ffffff; 
             --text: #333; --border: #eee; --danger: #dc3545; --success: #28a745;
@@ -57,6 +27,21 @@
         
         body { font-family: 'Segoe UI', sans-serif; background: var(--bg-body); color: var(--text); display: flex; flex-direction: column; align-items: center; padding: 20px; transition: 0.3s; min-height: 100vh; margin: 0; }
         
+        /* Ajuste de Alerta */
+  #msg-alerta { 
+            display: none; 
+            padding: 12px; 
+            border-radius: 10px; 
+            margin-bottom: 15px; 
+            font-size: 0.9em; 
+            text-align: center; 
+            font-weight: bold;
+        }
+        /* Cores de alerta que funcionam em qualquer fundo */
+        .alerta-sucesso { background-color: #d4edda !important; color: #155724 !important; border: 1px solid #c3e6cb; }
+        .alerta-aviso { background-color: #fff3cd !important; color: #856404 !important; border: 1px solid #ffeeba; }
+        [data-theme="dark"] #msg-alerta { color: #121212 !important; }
+
         .ad-box { background: rgba(0,0,0,0.05); border: 1px dashed #ccc; margin: 15px 0; text-align: center; color: #888; font-size: 11px; border-radius: 10px; display: flex; align-items: center; justify-content: center; width: 100%; overflow: hidden; }
         .ad-728 { max-width: 728px; width: 100%; height: 90px; }
         .ad-middle { height: 100px; margin: 15px 0; }
@@ -84,7 +69,6 @@
         
         .btn-wa { background: #25d366; color: white; border: none; padding: 14px; border-radius: 10px; width: 100%; font-weight: bold; cursor: pointer; margin-top: 15px; display: flex; align-items: center; justify-content: center; gap: 8px; text-decoration: none; }
         
-        /* BOTÃO ALAVANCAR COM ANIMAÇÃO */
         .oferta-urgente { background: #fff3cd; border: 1px solid #ffeeba; color: #856404; padding: 10px; border-radius: 10px; margin-top: 25px; text-align: center; font-size: 0.85em; font-weight: bold; display: flex; align-items: center; justify-content: center; gap: 8px; }
         .timer-badge { background: #dc3545; color: white; padding: 2px 8px; border-radius: 5px; font-family: monospace; }
 
@@ -99,8 +83,6 @@
             100% { box-shadow: 0 0 0 0 rgba(255, 77, 0, 0); }
         }
 
-        #msg-alerta { display: none; padding: 12px; border-radius: 10px; margin-bottom: 15px; font-size: 0.9em; text-align: center; font-weight: bold; }
-        
         .tax-table { width: 100%; border-collapse: collapse; margin-top: 20px; }
         .tax-table th, .tax-table td { border: 1px solid var(--border); padding: 8px; text-align: center; font-size: 0.8em; }
         .tax-table th { background: var(--shopee-orange); color: white; }
@@ -110,22 +92,17 @@
 
         .contact-section { margin-top: 30px; padding: 25px; background: var(--bg-card); border-radius: 20px; border: 1px solid var(--border); text-align: center; width: 100%; max-width: 480px; box-sizing: border-box;}
         .contact-section h3 { color: var(--shopee-orange); margin-bottom: 15px; font-size: 1.3em; }
-        .contact-section p { font-size: 0.9em; margin-bottom: 20px; opacity: 0.8; }
-        .contact-links { display: flex; flex-direction: column; gap: 10px; }
-        .contact-btn { display: flex; align-items: center; justify-content: center; gap: 10px; padding: 12px; border-radius: 10px; text-decoration: none; font-weight: bold; font-size: 0.95em; transition: 0.3s; }
-        .btn-email { background: #f1f1f1; color: #333; border: 1px solid #ddd; }
-        [data-theme="dark"] .btn-email { background: #333; color: #fff; border-color: #444; }
+
+        .modal-privacy { display: none; position: fixed; z-index: 1000; left: 0; top: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.8); overflow-y: auto; }
+        .modal-content { background: var(--bg-card); margin: 5% auto; padding: 30px; border-radius: 20px; width: 90%; max-width: 600px; line-height: 1.6; position: relative; }
+        .close-modal { position: absolute; top: 15px; right: 20px; font-size: 25px; cursor: pointer; color: var(--shopee-orange); }
+        .privacy-link { display: block; text-align: center; margin-top: 15px; font-size: 0.8em; color: var(--text); opacity: 0.6; text-decoration: underline; cursor: pointer; }
     </style>
 </head>
 <body>
 
     <div class="ad-box ad-728">
-        <ins class="adsbygoogle"
-             style="display:block"
-             data-ad-client="ca-pub-2017292251960769"
-             data-ad-slot="AUTO"
-             data-ad-format="auto"
-             data-full-width-responsive="true"></ins>
+        <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-2017292251960769" data-ad-slot="AUTO" data-ad-format="auto" data-full-width-responsive="true"></ins>
         <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
     </div>
 
@@ -172,12 +149,7 @@
                 <span class="price-tag" id="res-seguro">R$ 0,00</span>
 
                 <div class="ad-box ad-middle">
-                     <ins class="adsbygoogle"
-                         style="display:block"
-                         data-ad-client="ca-pub-2017292251960769"
-                         data-ad-slot="AUTO"
-                         data-ad-format="rectangle"
-                         data-full-width-responsive="true"></ins>
+                     <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-2017292251960769" data-ad-slot="AUTO" data-ad-format="rectangle" data-full-width-responsive="true"></ins>
                     <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
                 </div>
 
@@ -186,7 +158,7 @@
                     <span class="price-tag" id="res-pix" style="font-size:1.3em; opacity:0.8">R$ 0,00</span>
                 </div>
 
-             <button class="btn-wa" onclick="enviarZap()">Enviar Valor do Produto WhatsApp</button>
+                <button class="btn-wa" onclick="enviarZap()">Enviar Valor do Produto WhatsApp</button>
             </div>
 
             <div class="oferta-urgente">
@@ -204,17 +176,12 @@
         <p>Encontrou algum erro ou tem uma sugestão? Entre em contato!</p>
         <div class="contact-links">
             <a href="mailto:isaro.site@gmail.com" class="contact-btn btn-email">📧 Enviar E-mail</a>
-            
-          <!--<a href="https://wa.me/55017997812145" target="_blank" class="contact-btn btn-wa" style="margin-top:0">💬 Falar no WhatsApp</a>-->
-            
         </div>
     </div>
 
     <div class="seo-footer">
         <h3>Manual de Precificação Shopee 2026</h3>
-        <p>Esta ferramenta ajuda vendedores a calcular o preço ideal considerando a nova <strong>taxa fixa variável</strong> e a comissão de 2026. O "Preço Seguro" garante que sua margem de lucro seja respeitada após todos os descontos.</p>
-        
-        <h4>Tabela de Taxa Fixa Variável (CNPJ/MEI 2026)</h4>
+        <p>Esta ferramenta ajuda vendedores a calcular o preço ideal...</p>
         <table class="tax-table">
             <tr><th>Valor do Produto</th><th>Comissão</th><th>Taxa Fixa</th></tr>
             <tr><td>Até R$ 79,99</td><td>20%</td><td>R$ 4,00</td></tr>
@@ -222,16 +189,28 @@
             <tr><td>R$ 100,00 a R$ 199,99</td><td>14%</td><td>R$ 20,00</td></tr>
             <tr><td>Acima de R$ 200,00</td><td>14%</td><td>R$ 26,00</td></tr>
         </table>
-
         <p style="margin-top:20px; font-size: 0.8em; opacity: 0.7; text-align: center;">
-            &copy; 2026 Calculadora Shopee Pro - calculadorashopee.site<br>
-            Ferramenta independente para auxílio ao vendedor.
+            &copy; 2026 Calculadora Shopee Pro - calculadorashopee.site
         </p>
+    </div>
+
+    <span class="privacy-link" onclick="document.getElementById('privacy').style.display='block'">Política de Privacidade</span>
+
+    <div id="privacy" class="modal-privacy">
+        <div class="modal-content">
+            <span class="close-modal" onclick="document.getElementById('privacy').style.display='none'">&times;</span>
+            <h3>Política de Privacidade</h3>
+            <p>Seus dados estão protegidos...</p>
+        </div>
     </div>
 
 <script>
     let modAtivo = 'antigo';
-    if (localStorage.getItem('tema') === 'escuro') document.documentElement.setAttribute('data-theme', 'dark');
+
+    // Carregar Tema Salvo
+    if (localStorage.getItem('tema') === 'escuro') {
+        document.documentElement.setAttribute('data-theme', 'dark');
+    }
 
     window.onload = function() {
         if(localStorage.getItem('sh_imposto')) document.getElementById('in-imposto').value = localStorage.getItem('sh_imposto');
@@ -279,11 +258,11 @@
         localStorage.setItem('sh_margem', document.getElementById('range-margem').value);
 
         const alerta = document.getElementById('msg-alerta');
-        alerta.style.display = 'none';
-
         const comBase = (modAtivo === 'antigo' ? 0.20 : 0.14);
+
         if ((comBase + imposto + margem) >= 0.98) {
             document.getElementById('res-seguro').innerText = "Inviável";
+            alerta.style.display = 'none';
             return;
         }
 
@@ -315,37 +294,20 @@
         document.getElementById('res-seguro').innerText = "R$ " + pSeguro.toFixed(2);
         document.getElementById('res-pix').innerText = "R$ " + pPix.toFixed(2);
         
-   alerta.style.display = 'block';
+      alerta.style.display = 'block';
         if (margem >= 0.25) { 
             alerta.innerText = "✅ Margem Saudável"; 
-            alerta.className = 'alerta-sucesso'; // Usa a classe de sucesso
+            alerta.className = 'alerta-sucesso'; 
         } else { 
             alerta.innerText = "⚠️ Margem Baixa!"; 
-            alerta.className = 'alerta-aviso'; // Usa a classe de aviso
+            alerta.className = 'alerta-aviso'; 
         }
+    }
 
     function enviarZap() {
         const val = document.getElementById('res-seguro').innerText;
         window.open(`https://api.whatsapp.com/send?text=Preço Shopee Sugerido: ${val}`, '_blank');
     }
 </script>
-    <span class="privacy-link" onclick="document.getElementById('privacy').style.display='block'">Política de Privacidade</span>
-
-    <div id="privacy" class="modal-privacy">
-        <div class="modal-content">
-            <span class="close-modal" onclick="document.getElementById('privacy').style.display='none'">&times;</span>
-            <h3>Política de Privacidade</h3>
-            <p>A sua privacidade é importante para nós. É política do <strong>calculadorashopee.site</strong> respeitar a sua privacidade em relação a qualquer informação sua que possamos coletar no site.</p>
-            <p><strong>Cookies e Anúncios:</strong> O Google, como fornecedor de terceiros, utiliza cookies para exibir anúncios no nosso site. Com o cookie DART, o Google pode exibir anúncios com base nas visitas que o usuário fez a este e a outros sites na Internet. Os usuários podem desativar o cookie DART visitando a Política de Privacidade da rede de conteúdo e anúncios do Google.</p>
-            <p><strong>Análise de Dados:</strong> Utilizamos o Google Analytics para entender como nossos usuários interagem com a ferramenta, visando sempre melhorias na experiência de uso.</p>
-            <p>Ao utilizar nosso site, você concorda com nossos termos de uso e política de privacidade.</p>
-        </div>
-    </div>
 </body>
 </html>
-
-
-
-
-
-
