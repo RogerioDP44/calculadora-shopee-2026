@@ -58,7 +58,6 @@
         .btn-alavancar { background: linear-gradient(45deg, #ff4d00, #ff9900); color: white; padding: 16px; border-radius: 12px; width: 100%; font-weight: 800; display: block; text-decoration: none; margin-top: 10px; animation: pulse 2s infinite; box-sizing: border-box; text-align: center; }
         @keyframes pulse { 0% { transform: scale(1); } 50% { transform: scale(1.02); } 100% { transform: scale(1); } }
 
-        /* Dica do Dia Style */
         .dica-dia { background: #e3f2fd; border-left: 5px solid #2196f3; padding: 15px; border-radius: 8px; margin: 20px 0; color: #0d47a1; font-size: 0.9em; display: flex; gap: 12px; text-align: left; }
         [data-theme="dark"] .dica-dia { background: #0d47a12e; color: #bbdefb; border-left-color: #64b5f6; }
 
@@ -131,7 +130,7 @@
                 </div>
             </div>
 
-            <a href="https://go.hotmart.com/N104341335G" target="_blank" class="btn-alavancar">🚀 ALAVANQUE SUAS VENDAS</a>
+            <a href="https://go.hotmart.com/N104341335G" target="_blank" class="btn-alavancar">🚀 SHOPEE NINJA: ALAVANQUE VENDAS</a>
         </div>
 
         <div class="seo-footer">
@@ -158,7 +157,7 @@
                 </tbody>
             </table>
 
-            <span class="privacy-link" onclick="document.getElementById('privacy').style.display='block'">Política de Privacidade e Termos de Uso</span>
+            <span class="privacy-link" onclick="abrirPrivacidade()">Política de Privacidade e Termos de Uso</span>
         </div>
     </div>
 
@@ -212,12 +211,11 @@
         
         const alerta = document.getElementById('msg-alerta');
         const areaPix = document.getElementById('area-pix');
-        const comBase = (modAtivo === 'antigo' ? 0.20 : 0.14);
 
-        if ((comBase + imposto + margem) >= 0.98) {
-            document.getElementById('res-seguro').innerText = "Inviável";
-            areaPix.style.display = 'none';
-            alerta.style.display = 'none';
+        if (custo === 0) {
+            document.getElementById('res-seguro').innerText = "R$ 0,00";
+            document.getElementById('res-pix').innerText = "R$ 0,00";
+            document.getElementById('res-lucro').innerText = "R$ 0,00";
             return;
         }
 
@@ -253,8 +251,16 @@
         }
     }
 
+    function abrirPrivacidade() {
+        document.getElementById('privacy').style.display='block';
+        window.location.hash = "politica-privacidade";
+    }
+
     window.onload = function() {
         document.getElementById('texto-dica').innerText = dicas[Math.floor(Math.random() * dicas.length)];
+        if(window.location.hash === "#politica-privacidade") {
+            document.getElementById('privacy').style.display='block';
+        }
         rodarCalculo();
     };
 </script>
