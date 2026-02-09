@@ -27,11 +27,9 @@
         
         body { font-family: 'Segoe UI', sans-serif; background: var(--bg-body); color: var(--text); display: flex; flex-direction: column; align-items: center; padding: 20px; transition: 0.3s; min-height: 100vh; margin: 0; }
         
-        /* Blocos de Anúncios */
         .ad-box { background: rgba(0,0,0,0.03); border: 1px dashed #ccc; margin: 15px 0; text-align: center; color: #888; font-size: 11px; border-radius: 10px; display: flex; align-items: center; justify-content: center; width: 100%; overflow: hidden; }
         .ad-728 { max-width: 728px; width: 100%; height: 90px; }
         .ad-middle { height: 100px; margin: 15px 0; }
-        .ad-footer { max-width: 600px; height: 100px; margin-top: 20px; }
 
         .container { width: 100%; max-width: 480px; }
         .card { background: var(--bg-card); padding: 25px; border-radius: 20px; box-shadow: 0 10px 25px rgba(0,0,0,0.2); position: relative; border: 1px solid var(--border); }
@@ -60,8 +58,12 @@
         .btn-alavancar { background: linear-gradient(45deg, #ff4d00, #ff9900); color: white; padding: 16px; border-radius: 12px; width: 100%; font-weight: 800; display: block; text-decoration: none; margin-top: 10px; animation: pulse 2s infinite; box-sizing: border-box; text-align: center; }
         @keyframes pulse { 0% { transform: scale(1); } 50% { transform: scale(1.02); } 100% { transform: scale(1); } }
 
+        /* Dica do Dia Style */
+        .dica-dia { background: #e3f2fd; border-left: 5px solid #2196f3; padding: 15px; border-radius: 8px; margin: 20px 0; color: #0d47a1; font-size: 0.9em; display: flex; gap: 12px; text-align: left; }
+        [data-theme="dark"] .dica-dia { background: #0d47a12e; color: #bbdefb; border-left-color: #64b5f6; }
+
         .tax-table { width: 100%; border-collapse: collapse; margin: 15px 0; background: white; color: #333; }
-        .tax-table th, .tax-table td { border: 1px solid #ddd; padding: 8px; text-align: center; font-size: 0.8em; }
+        .tax-table th, .tax-table td { border: 1px solid #ddd; padding: 8px; text-align: center; font-size: 0.75em; }
         .tax-table th { background: var(--shopee-orange); color: white; }
 
         .seo-footer { max-width: 600px; margin-top: 40px; padding: 20px; font-size: 0.9em; line-height: 1.7; color: var(--text); border-top: 1px solid var(--border); }
@@ -74,12 +76,7 @@
 <body>
 
     <div class="ad-box ad-728">
-        <ins class="adsbygoogle"
-             style="display:block"
-             data-ad-client="ca-pub-2017292251960769"
-             data-ad-slot="AUTO"
-             data-ad-format="auto"
-             data-full-width-responsive="true"></ins>
+        <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-2017292251960769" data-ad-slot="AUTO" data-ad-format="auto" data-full-width-responsive="true"></ins>
         <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
     </div>
 
@@ -109,7 +106,6 @@
                     <span id="txt-margem" style="color:var(--shopee-orange); font-weight:bold;">20%</span>
                 </div>
                 <input type="range" id="range-margem" min="0" max="100" value="20" oninput="atualizarRange()">
-                <button onclick="fixarVinteCinco()" style="background:none; border:1px solid var(--shopee-orange); color:var(--shopee-orange); padding:5px; border-radius:8px; font-size:0.7em; cursor:pointer; width: 100%; margin-top: 8px;">🎯 Margem Ideal (25%)</button>
             </div>
 
             <div id="box-resultado">
@@ -125,12 +121,7 @@
                 <span class="price-tag" id="res-seguro">R$ 0,00</span>
 
                 <div class="ad-box ad-middle">
-                     <ins class="adsbygoogle"
-                         style="display:block"
-                         data-ad-client="ca-pub-2017292251960769"
-                         data-ad-slot="AUTO"
-                         data-ad-format="rectangle"
-                         data-full-width-responsive="true"></ins>
+                     <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-2017292251960769" data-ad-slot="AUTO" data-ad-format="rectangle" data-full-width-responsive="true"></ins>
                     <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
                 </div>
 
@@ -143,26 +134,28 @@
             <a href="https://go.hotmart.com/N104341335G" target="_blank" class="btn-alavancar">🚀 ALAVANQUE SUAS VENDAS</a>
         </div>
 
-        <div class="ad-box ad-footer">
-             <ins class="adsbygoogle"
-                 style="display:block"
-                 data-ad-client="ca-pub-2017292251960769"
-                 data-ad-slot="AUTO"
-                 data-ad-format="auto"
-                 data-full-width-responsive="true"></ins>
-            <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
-        </div>
-
         <div class="seo-footer">
+            <div class="dica-dia">
+                <span>💡</span>
+                <div>
+                    <strong style="display:block; font-size:0.8em; text-transform:uppercase;">Dica do Dia</strong>
+                    <p id="texto-dica" style="margin:0;">Carregando dica estratégica...</p>
+                </div>
+            </div>
+
             <h3 style="color:var(--shopee-orange)">Manual de Precificação Shopee 2026</h3>
-            <p>Em 2026, a Shopee atualizou as taxas para vendedores CNPJ e MEI. Além da comissão de venda, agora existe uma <strong>taxa fixa variável</strong> baseada no valor final do produto anunciado.</p>
+            <p>Com as novas diretrizes da Shopee Brasil para 2026, a precificação correta tornou-se o pilar de sustentabilidade para vendedores CNPJ e MEI.</p>
             
             <table class="tax-table">
-                <tr><th>Valor do Produto</th><th>Comissão</th><th>Taxa Fixa</th></tr>
-                <tr><td>Até R$ 79,99</td><td>20%</td><td>R$ 4,00</td></tr>
-                <tr><td>R$ 80 a R$ 99,99</td><td>14%</td><td>R$ 16,00</td></tr>
-                <tr><td>R$ 100 a R$ 199,99</td><td>14%</td><td>R$ 20,00</td></tr>
-                <tr><td>Acima de R$ 200</td><td>14%</td><td>R$ 26,00</td></tr>
+                <thead>
+                    <tr><th>Valor Venda</th><th>Comissão</th><th>Taxa Fixa</th><th>Estratégia Pix</th></tr>
+                </thead>
+                <tbody>
+                    <tr><td>Até R$ 79,99</td><td>20%</td><td>R$ 4,00</td><td>-3% Desc.</td></tr>
+                    <tr><td>R$ 80 a 99</td><td>14%</td><td>R$ 16,00</td><td>-5% Desc.</td></tr>
+                    <tr><td>R$ 100 a 199</td><td>14%</td><td>R$ 20,00</td><td>-5% Desc.</td></tr>
+                    <tr><td>Acima R$ 200</td><td>14%</td><td>R$ 26,00</td><td>-7% Desc.</td></tr>
+                </tbody>
             </table>
 
             <span class="privacy-link" onclick="document.getElementById('privacy').style.display='block'">Política de Privacidade e Termos de Uso</span>
@@ -173,16 +166,19 @@
         <div class="modal-content">
             <span class="close-modal" onclick="document.getElementById('privacy').style.display='none'">&times;</span>
             <h3 style="color:var(--shopee-orange)">Privacidade e Termos</h3>
-            <p>O <strong>calculadorashopee.site</strong> é uma ferramenta independente. Temos o compromisso de proteger sua privacidade:</p>
-            <ul>
-                <li><strong>Processamento Local:</strong> Todos os cálculos são feitos no seu navegador. Não salvamos seus custos ou faturamento.</li>
-                <li><strong>Cookies:</strong> Utilizamos Google Analytics para métricas de tráfego e AdSense para exibição de anúncios.</li>
-            </ul>
+            <p>Este site utiliza cookies do Google para análise e anúncios. Seus dados de custo e lucro são processados apenas no seu navegador e não são salvos em nossos servidores.</p>
         </div>
     </div>
 
 <script>
     let modAtivo = 'antigo';
+    const dicas = [
+        "Preços terminados em ,99 costumam converter 15% mais na Shopee.",
+        "O Preço Pix é ideal para cupons de novos seguidores e ofertas relâmpago.",
+        "Taxa de resposta alta no chat melhora seu rankeamento orgânico drasticamente.",
+        "Em 2026, margens abaixo de 15% são consideradas de alto risco operacional.",
+        "Sempre verifique se o peso e dimensões estão corretos para evitar cobranças extras."
+    ];
 
     if (localStorage.getItem('tema') === 'escuro') document.documentElement.setAttribute('data-theme', 'dark');
 
@@ -207,11 +203,6 @@
     function atualizarRange() {
         document.getElementById('txt-margem').innerText = document.getElementById('range-margem').value + "%";
         rodarCalculo();
-    }
-
-    function fixarVinteCinco() {
-        document.getElementById('range-margem').value = 25;
-        atualizarRange();
     }
 
     function rodarCalculo() {
@@ -263,11 +254,7 @@
     }
 
     window.onload = function() {
-        if(localStorage.getItem('sh_imposto')) document.getElementById('in-imposto').value = localStorage.getItem('sh_imposto');
-        if(localStorage.getItem('sh_margem')) {
-            document.getElementById('range-margem').value = localStorage.getItem('sh_margem');
-            atualizarRange();
-        }
+        document.getElementById('texto-dica').innerText = dicas[Math.floor(Math.random() * dicas.length)];
         rodarCalculo();
     };
 </script>
