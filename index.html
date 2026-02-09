@@ -27,9 +27,11 @@
         
         body { font-family: 'Segoe UI', sans-serif; background: var(--bg-body); color: var(--text); display: flex; flex-direction: column; align-items: center; padding: 20px; transition: 0.3s; min-height: 100vh; margin: 0; }
         
-        .ad-box { background: rgba(0,0,0,0.05); border: 1px dashed #ccc; margin: 15px 0; text-align: center; color: #888; font-size: 11px; border-radius: 10px; display: flex; align-items: center; justify-content: center; width: 100%; overflow: hidden; }
+        /* Blocos de Anúncios */
+        .ad-box { background: rgba(0,0,0,0.03); border: 1px dashed #ccc; margin: 15px 0; text-align: center; color: #888; font-size: 11px; border-radius: 10px; display: flex; align-items: center; justify-content: center; width: 100%; overflow: hidden; }
         .ad-728 { max-width: 728px; width: 100%; height: 90px; }
         .ad-middle { height: 100px; margin: 15px 0; }
+        .ad-footer { max-width: 600px; height: 100px; margin-top: 20px; }
 
         .container { width: 100%; max-width: 480px; }
         .card { background: var(--bg-card); padding: 25px; border-radius: 20px; box-shadow: 0 10px 25px rgba(0,0,0,0.2); position: relative; border: 1px solid var(--border); }
@@ -72,7 +74,12 @@
 <body>
 
     <div class="ad-box ad-728">
-        <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-2017292251960769" data-ad-slot="AUTO" data-ad-format="auto" data-full-width-responsive="true"></ins>
+        <ins class="adsbygoogle"
+             style="display:block"
+             data-ad-client="ca-pub-2017292251960769"
+             data-ad-slot="AUTO"
+             data-ad-format="auto"
+             data-full-width-responsive="true"></ins>
         <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
     </div>
 
@@ -118,7 +125,12 @@
                 <span class="price-tag" id="res-seguro">R$ 0,00</span>
 
                 <div class="ad-box ad-middle">
-                     <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-2017292251960769" data-ad-slot="AUTO" data-ad-format="rectangle" data-full-width-responsive="true"></ins>
+                     <ins class="adsbygoogle"
+                         style="display:block"
+                         data-ad-client="ca-pub-2017292251960769"
+                         data-ad-slot="AUTO"
+                         data-ad-format="rectangle"
+                         data-full-width-responsive="true"></ins>
                     <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
                 </div>
 
@@ -131,9 +143,19 @@
             <a href="https://go.hotmart.com/N104341335G" target="_blank" class="btn-alavancar">🚀 ALAVANQUE SUAS VENDAS</a>
         </div>
 
+        <div class="ad-box ad-footer">
+             <ins class="adsbygoogle"
+                 style="display:block"
+                 data-ad-client="ca-pub-2017292251960769"
+                 data-ad-slot="AUTO"
+                 data-ad-format="auto"
+                 data-full-width-responsive="true"></ins>
+            <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+        </div>
+
         <div class="seo-footer">
             <h3 style="color:var(--shopee-orange)">Manual de Precificação Shopee 2026</h3>
-            <p>Em 2026, a Shopee atualizou as taxas para vendedores CNPJ e MEI. Dominar estes custos é essencial para não ter prejuízo. Além da comissão de venda, agora existe uma <strong>taxa fixa variável</strong> baseada no valor final do produto anunciado.</p>
+            <p>Em 2026, a Shopee atualizou as taxas para vendedores CNPJ e MEI. Além da comissão de venda, agora existe uma <strong>taxa fixa variável</strong> baseada no valor final do produto anunciado.</p>
             
             <table class="tax-table">
                 <tr><th>Valor do Produto</th><th>Comissão</th><th>Taxa Fixa</th></tr>
@@ -143,8 +165,6 @@
                 <tr><td>Acima de R$ 200</td><td>14%</td><td>R$ 26,00</td></tr>
             </table>
 
-            <p><strong>Diferença entre Preço Seguro e Preço Pix:</strong> O <em>Preço Seguro</em> é o valor recomendado para cobrir todas as taxas e garantir seu lucro em qualquer método de pagamento. O <em>Preço Pix</em> aproveita a redução de taxas bancárias da Shopee para oferecer um valor mais competitivo ao cliente sem afetar seu ganho líquido.</p>
-
             <span class="privacy-link" onclick="document.getElementById('privacy').style.display='block'">Política de Privacidade e Termos de Uso</span>
         </div>
     </div>
@@ -153,13 +173,11 @@
         <div class="modal-content">
             <span class="close-modal" onclick="document.getElementById('privacy').style.display='none'">&times;</span>
             <h3 style="color:var(--shopee-orange)">Privacidade e Termos</h3>
-            <p>O <strong>calculadorashopee.site</strong> é uma ferramenta gratuita e independente. Temos o compromisso de proteger sua privacidade:</p>
+            <p>O <strong>calculadorashopee.site</strong> é uma ferramenta independente. Temos o compromisso de proteger sua privacidade:</p>
             <ul>
                 <li><strong>Processamento Local:</strong> Todos os cálculos são feitos no seu navegador. Não salvamos seus custos ou faturamento.</li>
                 <li><strong>Cookies:</strong> Utilizamos Google Analytics para métricas de tráfego e AdSense para exibição de anúncios.</li>
-                <li><strong>Segurança:</strong> O site é servido via HTTPS seguro.</li>
             </ul>
-            <p style="font-size: 0.8em; opacity: 0.7; margin-top: 15px;">Ao utilizar esta calculadora, você concorda com o processamento local de dados conforme descrito.</p>
         </div>
     </div>
 
