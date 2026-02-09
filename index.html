@@ -29,7 +29,6 @@
         
         .ad-box { background: rgba(0,0,0,0.05); border: 1px dashed #ccc; margin: 15px 0; text-align: center; color: #888; font-size: 11px; border-radius: 10px; display: flex; align-items: center; justify-content: center; width: 100%; overflow: hidden; }
         .ad-728 { max-width: 728px; width: 100%; height: 90px; }
-        .ad-middle { height: 100px; margin: 15px 0; }
 
         .container { width: 100%; max-width: 480px; }
         .card { background: var(--bg-card); padding: 25px; border-radius: 20px; box-shadow: 0 10px 25px rgba(0,0,0,0.2); position: relative; border: 1px solid var(--border); }
@@ -45,6 +44,10 @@
         .field label { display: block; margin-bottom: 5px; font-size: 0.85em; font-weight: bold; }
         .field input { width: 100%; padding: 12px; border: 2px solid var(--border); border-radius: 10px; background: var(--bg-card); color: var(--text); box-sizing: border-box; font-size: 1rem; }
         
+        /* BARRA DE LUCRO REATIVADA */
+        .slider-box { margin: 20px 0; padding: 15px; background: rgba(238, 77, 45, 0.07); border-radius: 12px; border: 1px solid var(--border); }
+        .slider-box input { width: 100%; cursor: pointer; accent-color: var(--shopee-orange); margin: 10px 0; }
+
         #box-resultado { margin-top: 20px; padding: 20px; border-radius: 15px; border: 2px solid var(--shopee-orange); text-align: center; }
         .price-tag { font-size: 1.8em; color: var(--shopee-orange); font-weight: bold; display: block; margin-top: 5px; }
         
@@ -52,31 +55,20 @@
         .alerta-sucesso { background: #d4edda !important; border: 1px solid #c3e6cb; }
         .alerta-aviso { background: #fff3cd !important; border: 1px solid #ffeeba; }
 
-        .btn-wa { background: #25d366; color: white; border: none; padding: 14px; border-radius: 10px; width: 100%; font-weight: bold; cursor: pointer; margin-top: 15px; display: flex; align-items: center; justify-content: center; gap: 8px; text-decoration: none; font-size: 0.9em; }
-        
-        .btn-alavancar { background: linear-gradient(45deg, #ff4d00, #ff9900); color: white; padding: 16px; border-radius: 12px; width: 100%; font-weight: 800; display: block; text-decoration: none; margin-top: 10px; animation: pulse 2s infinite; box-sizing: border-box; text-align: center; }
+        .btn-alavancar { background: linear-gradient(45deg, #ff4d00, #ff9900); color: white; padding: 16px; border-radius: 12px; width: 100%; font-weight: 800; display: block; text-decoration: none; margin-top: 10px; animation: pulse 2s infinite; text-align: center; }
         @keyframes pulse { 0% { transform: scale(1); } 50% { transform: scale(1.02); } 100% { transform: scale(1); } }
 
-        .dica-dia { background: #e3f2fd; border-left: 5px solid #2196f3; padding: 15px; border-radius: 8px; margin: 20px 0; color: #0d47a1; font-size: 0.9em; display: flex; gap: 12px; text-align: left; }
-        [data-theme="dark"] .dica-dia { background: #0d47a12e; color: #bbdefb; border-left-color: #64b5f6; }
-
-        .seo-footer { max-width: 600px; margin-top: 40px; padding: 20px; font-size: 0.9em; line-height: 1.7; color: var(--text); border-top: 1px solid var(--border); }
-        .tax-table { width: 100%; border-collapse: collapse; margin: 15px 0; background: white; color: #333; }
+        .tax-table { width: 100%; border-collapse: collapse; margin-top: 20px; background: white; color: #333; }
         .tax-table th, .tax-table td { border: 1px solid #ddd; padding: 8px; text-align: center; font-size: 0.75em; }
         .tax-table th { background: var(--shopee-orange); color: white; }
 
+        .seo-footer { max-width: 600px; margin-top: 40px; padding: 20px; font-size: 0.9em; line-height: 1.7; color: var(--text); border-top: 1px solid var(--border); }
         .modal-privacy { display: none; position: fixed; z-index: 9999; left: 0; top: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.8); }
-        .modal-content { background: var(--bg-card); margin: 10% auto; padding: 25px; border-radius: 20px; width: 85%; max-width: 500px; position: relative; color: var(--text); text-align: left; }
+        .modal-content { background: var(--bg-card); margin: 10% auto; padding: 25px; border-radius: 20px; width: 85%; max-width: 500px; position: relative; color: var(--text); }
         .close-modal { position: absolute; top: 15px; right: 20px; font-size: 25px; cursor: pointer; color: var(--shopee-orange); }
-        .privacy-link { cursor: pointer; text-decoration: underline; opacity: 0.6; font-size: 0.8em; margin-top: 15px; display: block; text-align: center; }
     </style>
 </head>
 <body>
-
-    <div class="ad-box ad-728">
-        <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-2017292251960769" data-ad-slot="AUTO" data-ad-format="auto" data-full-width-responsive="true"></ins>
-        <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
-    </div>
 
     <div class="container">
         <div class="card">
@@ -98,9 +90,12 @@
                 <input type="number" id="in-imposto" value="4" step="0.1" oninput="rodarCalculo()">
             </div>
 
-            <div class="field">
-                <label>Margem de Lucro (%)</label>
-                <input type="number" id="range-margem" value="20" oninput="rodarCalculo()">
+            <div class="slider-box">
+                <div style="display:flex; justify-content:space-between; align-items: center;">
+                    <span style="font-weight:bold; font-size:0.9em">Margem de Lucro (%)</span>
+                    <span id="txt-margem" style="color:var(--shopee-orange); font-weight:bold;">20%</span>
+                </div>
+                <input type="range" id="range-margem" min="0" max="100" value="20" oninput="atualizarRange()">
             </div>
 
             <div id="box-resultado">
@@ -109,81 +104,47 @@
                     <span>Lucro Real Estimado:</span>
                     <span id="res-lucro" style="font-weight:bold;">R$ 0,00</span>
                 </div>
-                
                 <hr style="border:0; border-top: 1px solid var(--border); margin:15px 0">
                 
-                <div style="text-align:center; font-size:0.8em; font-weight:bold; color:var(--success)">🛡️ PREÇO SEGURO (Anúncio)</div>
+                <span style="font-size:0.8em; font-weight:bold; color:var(--success)">🛡️ PREÇO SEGURO</span>
                 <span class="price-tag" id="res-seguro">R$ 0,00</span>
-
-                <div class="ad-box ad-middle">
-                     <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-2017292251960769" data-ad-slot="AUTO" data-ad-format="rectangle" data-full-width-responsive="true"></ins>
-                    <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
-                </div>
 
                 <div id="area-pix" style="margin-top: 15px; padding-top: 15px; border-top: 1px dashed var(--border); display: none;">
                     <div style="text-align:center; font-size:0.8em; font-weight:bold; color:var(--shopee-orange);">🔥 ESTRATÉGIA PIX (Oferta Relâmpago)</div>
                     <span class="price-tag" id="res-pix" style="font-size:1.3em; opacity:0.8">R$ 0,00</span>
                 </div>
-
-                <button class="btn-wa" onclick="enviarZap()">Enviar por WhatsApp</button>
             </div>
 
             <a href="https://go.hotmart.com/N104341335G" target="_blank" class="btn-alavancar">🚀 ALAVANQUE SUAS VENDAS</a>
         </div>
 
         <div class="seo-footer">
-            <div class="dica-dia">
-                <span>💡</span>
-                <div>
-                    <strong style="display:block; font-size:0.8em; text-transform:uppercase;">Dica Estratégica</strong>
-                    <p id="texto-dica" style="margin:0;">Carregando...</p>
-                </div>
-            </div>
-
             <h3 style="color:var(--shopee-orange)">Manual de Precificação Shopee 2026</h3>
-            <p>Com as novas diretrizes da Shopee Brasil para 2026, a precificação correta tornou-se o pilar de sustentabilidade para vendedores CNPJ e MEI. Abaixo, detalhamos as taxas e a nova estratégia de transação instantânea.</p>
-            
             <table class="tax-table">
                 <thead>
-                    <tr><th>Valor Venda</th><th>Comissão</th><th>Taxa Fixa</th><th>Sugestão Pix</th></tr>
+                    <tr><th>Valor Venda</th><th>Comissão</th><th>Taxa Fixa</th><th>Estratégia Pix</th></tr>
                 </thead>
                 <tbody>
-                    <tr><td>Até R$ 79,99</td><td>20%</td><td>R$ 4,00</td><td>-3% Desc.</td></tr>
-                    <tr><td>R$ 80 a 99</td><td>14%</td><td>R$ 16,00</td><td>-5% Desc.</td></tr>
-                    <tr><td>R$ 100 a 199</td><td>14%</td><td>R$ 20,00</td><td>-5% Desc.</td></tr>
-                    <tr><td>Acima R$ 200</td><td>14%</td><td>R$ 26,00</td><td>-7% Desc.</td></tr>
+                    <tr><td>Até R$ 79,99</td><td>20%</td><td>R$ 4,00</td><td>Média 3% off</td></tr>
+                    <tr><td>R$ 80 a 99</td><td>14%</td><td>R$ 16,00</td><td>Média 5% off</td></tr>
+                    <tr><td>R$ 100 a 199</td><td>14%</td><td>R$ 20,00</td><td>Média 5% off</td></tr>
+                    <tr><td>Acima R$ 200</td><td>14%</td><td>R$ 26,00</td><td>Média 7% off</td></tr>
                 </tbody>
             </table>
-
-            <p><strong>Diferença entre Preços:</strong> O <em>Preço Seguro</em> cobre todas as taxas financeiras de parcelamento e processamento de boleto. Já o <em>Preço Pix</em> aproveita a redução de custos de transação para oferecer um valor mais competitivo, ideal para bater a concorrência em campanhas sazonais.</p>
-
-            <span class="privacy-link" onclick="document.getElementById('privacy').style.display='block'">Privacidade e Termos de Uso</span>
+            <p onclick="document.getElementById('privacy').style.display='block'" style="cursor:pointer; text-decoration:underline; text-align:center;">Privacidade e Termos</p>
         </div>
     </div>
 
     <div id="privacy" class="modal-privacy">
         <div class="modal-content">
             <span class="close-modal" onclick="document.getElementById('privacy').style.display='none'">&times;</span>
-            <h3 style="color:var(--shopee-orange)">Segurança e Transparência</h3>
-            <p>O <strong>calculadorashopee.site</strong> é uma ferramenta independente. Temos o compromisso de proteger sua privacidade:</p>
-            <ul>
-                <li><strong>Processamento Local:</strong> Todos os cálculos são feitos no seu navegador. Não coletamos dados de faturamento ou custos.</li>
-                <li><strong>Cookies:</strong> Utilizamos Google AdSense (anúncios) e Google Analytics (estatísticas de tráfego) em total conformidade com a LGPD.</li>
-                <li><strong>Garantia:</strong> Esta ferramenta é um simulador; sempre confira seu extrato oficial no Seller Centre.</li>
-            </ul>
-            <button onclick="document.getElementById('privacy').style.display='none'" style="width: 100%; padding: 10px; background: var(--shopee-orange); color: white; border: 0; border-radius: 8px; cursor: pointer; margin-top: 10px;">Entendi e Aceito</button>
+            <h3>Segurança e Transparência</h3>
+            <p>Todos os cálculos são locais e privativos. Utilizamos cookies apenas para anúncios e métricas do Google.</p>
         </div>
     </div>
 
 <script>
     let modAtivo = 'antigo';
-    const dicas = [
-        "Preços terminados em ,99 costumam converter 15% mais.",
-        "Use o Preço Pix para atrair clientes no chat e fechar venda rápida.",
-        "Taxa de resposta alta no chat melhora seu rankeamento orgânico.",
-        "Em 2026, margens abaixo de 15% são consideradas de alto risco operacional.",
-        "Sempre verifique se o peso e dimensões estão corretos para evitar cobranças extras de frete."
-    ];
 
     if (localStorage.getItem('tema') === 'escuro') document.documentElement.setAttribute('data-theme', 'dark');
 
@@ -202,6 +163,11 @@
         modAtivo = m;
         document.getElementById('btn-antigo').classList.toggle('active', m === 'antigo');
         document.getElementById('btn-novo').classList.toggle('active', m === 'novo');
+        rodarCalculo();
+    }
+
+    function atualizarRange() {
+        document.getElementById('txt-margem').innerText = document.getElementById('range-margem').value + "%";
         rodarCalculo();
     }
 
@@ -224,7 +190,7 @@
         let pSeguro = 0;
         if (modAtivo === 'antigo') {
             pSeguro = (custo + 4) / (1 - 0.20 - imposto - margem);
-            areaPix.style.display = 'none'; // Esconde Pix nas taxas antigas
+            areaPix.style.display = 'none';
         } else {
             const faixas = [
                 {lim: 79.99, c: 0.20, f: 4},
@@ -236,12 +202,11 @@
                 let p = (custo + f.f) / (1 - f.c - imposto - margem);
                 if (p <= f.lim || f.lim === Infinity) { pSeguro = p; break; }
             }
-            areaPix.style.display = 'block'; // Mostra Pix nas taxas 2026
+            areaPix.style.display = 'block';
         }
 
-        let pPix = pSeguro * 0.96; // Média de economia Pix
         document.getElementById('res-seguro').innerText = "R$ " + pSeguro.toFixed(2);
-        document.getElementById('res-pix').innerText = "R$ " + pPix.toFixed(2);
+        document.getElementById('res-pix').innerText = "R$ " + (pSeguro * 0.96).toFixed(2);
         document.getElementById('res-lucro').innerText = "R$ " + (pSeguro * margem).toFixed(2);
         
         alerta.style.display = 'block';
@@ -254,15 +219,7 @@
         }
     }
 
-    function enviarZap() {
-        const val = document.getElementById('res-seguro').innerText;
-        window.open(`https://api.whatsapp.com/send?text=🛒 Cotação Shopee 2026: %0APreço sugerido para venda: ${val}`, '_blank');
-    }
-
-    window.onload = function() {
-        document.getElementById('texto-dica').innerText = dicas[Math.floor(Math.random() * dicas.length)];
-        rodarCalculo();
-    };
+    window.onload = rodarCalculo;
 </script>
 </body>
 </html>
