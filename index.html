@@ -55,7 +55,10 @@
         .alerta-sucesso { background: #d4edda !important; border: 1px solid #c3e6cb; }
         .alerta-aviso { background: #fff3cd !important; border: 1px solid #ffeeba; }
 
-        .btn-alavancar { background: linear-gradient(45deg, #ff4d00, #ff9900); color: white; padding: 16px; border-radius: 12px; width: 100%; font-weight: 800; display: block; text-decoration: none; margin-top: 10px; animation: pulse 2s infinite; box-sizing: border-box; text-align: center; }
+        /* BANNER DE AVISO ANTES DO BOTÃO */
+        .aviso-ninja { background: #fff3cd; color: #856404; padding: 10px; border-radius: 8px; margin-top: 20px; font-size: 0.8em; font-weight: bold; text-align: center; border: 1px dashed #ffeeba; }
+
+        .btn-alavancar { background: linear-gradient(45deg, #ff4d00, #ff9900); color: white; padding: 16px; border-radius: 12px; width: 100%; font-weight: 800; display: block; text-decoration: none; margin-top: 8px; animation: pulse 2s infinite; box-sizing: border-box; text-align: center; }
         @keyframes pulse { 0% { transform: scale(1); } 50% { transform: scale(1.02); } 100% { transform: scale(1); } }
 
         .dica-dia { background: #e3f2fd; border-left: 5px solid #2196f3; padding: 15px; border-radius: 8px; margin: 20px 0; color: #0d47a1; font-size: 0.9em; display: flex; gap: 12px; text-align: left; }
@@ -130,6 +133,7 @@
                 </div>
             </div>
 
+            <div class="aviso-ninja">⚠️ Vagas limitadas para a próxima turma:</div>
             <a href="https://go.hotmart.com/N104341335G" target="_blank" class="btn-alavancar">🚀 SHOPEE NINJA: ALAVANQUE VENDAS</a>
         </div>
 
@@ -142,8 +146,11 @@
                 </div>
             </div>
 
-            <h3 style="color:var(--shopee-orange)">Manual de Precificação Shopee 2026</h3>
-            <p>Com as novas diretrizes da Shopee Brasil para 2026, a precificação correta tornou-se o pilar de sustentabilidade para vendedores CNPJ e MEI.</p>
+            <h3 style="color:var(--shopee-orange)">Manual de Precificação Shopee 2026: Guia Completo</h3>
+            <p>A Shopee Brasil implementou em 2026 uma nova estrutura tarifária focada em sustentabilidade logística. Para vendedores CNPJ e MEI, entender estas faixas é a diferença entre o lucro real e o prejuízo oculto.</p>
+            
+            <h4>1. Entendendo as Faixas de Taxa Fixa</h4>
+            <p>Diferente dos anos anteriores, a taxa fixa de R$ 4,00 agora só se aplica a produtos de baixo ticket. Conforme o valor do produto sobe, a taxa fixa aumenta para cobrir os custos de seguro e manuseio da malha Shopee Xpress.</p>
             
             <table class="tax-table">
                 <thead>
@@ -156,6 +163,12 @@
                     <tr><td>Acima R$ 200</td><td>14%</td><td>R$ 26,00</td><td>-7% Desc.</td></tr>
                 </tbody>
             </table>
+
+            <h4>2. Por que usar o Preço Pix?</h4>
+            <p>O pagamento via Pix elimina as taxas de processamento das operadoras de cartão de crédito. Nossa calculadora simula uma economia média de 4%, permitindo que você repasse esse desconto ao cliente para ganhar o "buy box" (campo de compra) sem perder sua margem líquida.</p>
+
+            <h4>3. Frete e Devoluções</h4>
+            <p>Lembre-se: a comissão da Shopee incide sobre o valor do produto. Em casos de devolução, a plataforma estorna as taxas, mas o custo operacional de embalagem permanece. Por isso, recomendamos sempre uma margem de segurança mínima de 20%.</p>
 
             <span class="privacy-link" onclick="abrirPrivacidade()">Política de Privacidade e Termos de Uso</span>
         </div>
